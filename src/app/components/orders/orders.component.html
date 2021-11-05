@@ -1,0 +1,23 @@
+<div class="content">
+  <p class="caption">Приходы</p>
+  <div class="orders" *ngFor="let order of ordersList">
+    <div>
+      {{order.title}}
+    </div>
+    <div>
+      {{order.products.length}} Товар
+    </div>
+    <div class="date">
+      {{order.date}}
+    </div>
+    <div class="currencies">
+      <span [class.usd]="sumItem.symbol === Currencies.USD" *ngFor="let sumItem of order.sum">
+        {{sumItem.value}}  {{sumItem.symbol }}
+      </span>
+    </div>
+    <button class="btn-trash" (click)="deleteOrder(order)">
+      <i class="fas fa-trash-alt"></i>
+    </button>
+  </div>
+</div>
+

@@ -1,0 +1,48 @@
+<div class="container">
+  <p class="caption">Товары</p>
+
+  <div class="select">
+    <label class="label-select">Тип:</label>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+            #filterVariable
+            (change)="selectType(filterVariable.value)">
+      <option selected value="default">
+        Все товары
+      </option>
+      <ng-container *ngFor="let type of filterTypeSet">
+        <option [value]="type">
+          {{type}}
+        </option>
+      </ng-container>
+    </select>
+  </div>
+
+  <div>
+    <div class="products" *ngFor="let product of copyProductList">
+      <div>
+        <img [src]="product.photo"/>
+      </div>
+      <div>
+        №:{{product.serialNumber}}
+      </div>
+      <div class="type">
+        {{product.type}}
+      </div>
+      <div class="guarantee">
+        <div>с {{product.guarantee.start}}</div>
+        <div>по {{product.guarantee.end}}</div>
+      </div>
+      <div class="price">
+        <div *ngFor="let price of product.price">
+          {{price.value}} {{price.symbol}}
+        </div>
+      </div>
+      <div>
+        Приход: {{product.order}}
+      </div>
+      <button class="btn-trash" (click)="deleteProduct(product)">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </div>
+  </div>
+</div>

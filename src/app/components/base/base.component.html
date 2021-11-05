@@ -1,0 +1,20 @@
+<div class="header">
+  <div>
+    <input type="text" id="mySearch" class="input-search" placeholder="Поиск">
+  </div>
+  <div class="p-1">
+    <app-top-menu></app-top-menu>
+  </div>
+</div>
+
+<div class="container">
+  <div class="img">
+    <a routerLink="/">
+      <img [src]="USER_LOGO"/>
+    </a>
+  </div>
+  <app-navigation-menu></app-navigation-menu>
+</div>
+<div class="orders-container">
+  <router-outlet></router-outlet>
+</div>

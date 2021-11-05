@@ -1,0 +1,11 @@
+<div class="h-100">
+  <h3 class="title-container" mat-dialog-title> {{data.title}}</h3>
+  <div class="dialog-content" mat-dialog-content>
+    <img [src]="data.product.photo"/>
+    {{data.product.type}}
+  </div>
+  <div class="btns-container" mat-dialog-actions>
+    <button class="btn-cancel" mat-dialog-close>Отменить</button>
+    <button class="btn-delete" mat-dialog-close="true" cdkFocusInitial>Удалить</button>
+  </div>
+</div>

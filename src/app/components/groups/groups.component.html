@@ -1,0 +1,53 @@
+<div class="content">
+  <p class="caption">Приходы</p>
+  <div class="orders" *ngFor="let order of ordersList">
+    <div>
+      {{order.title}}
+    </div>
+    <div>
+      {{order.products.length}} Товаров
+    </div>
+    <div class="date"> {{order.date}}</div>
+
+    <div class="btn-group dropend">
+      <button type="button"
+              class="btn btn-secondary dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+      </button>
+      <div class="dropdown-menu">
+        <div class="items-menu">
+          <div class="order-container">{{order.title}}</div>
+          <div class="px-4" *ngIf="!order.products?.length">
+            Нет товаров
+          </div>
+          <div class="products" *ngFor="let product of order.products">
+            <div class="product-container">
+              <div>
+                <img [src]="product.photo"/>
+              </div>
+              <div>
+                {{product.type}}
+              </div>
+              <div>
+                № {{product.serialNumber}}
+              </div>
+              <div>
+                {{product.specification}}
+              </div>
+              <div>
+                {{product.isNew}}
+              </div>
+              <div class="price">
+                <div *ngFor="let price of product.price">
+                  {{price.value}} {{price.symbol}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
